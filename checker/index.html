@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+            .a{
+                height: 100vh;
+                width: 100%;
+            }
+.inp{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 5; 
+    left: 25px;
+}
+.box{
+    background-color: none;
+    border: dashed 5px grey;
+    width: 600px;
+    height: 400px;
+    border-width: 10px;
+    margin-left: 100px;
+text-align: center;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: grey;
+    z-index: 1;
+    position: absolute;
+font-size: 70px;
+flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: 700;
+}
+.header{
+    text-align: center;
+    font-size: 60px;
+    color: black;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px;
+}
+.txt{
+    text-align: center;
+user-select: none;
+}
+.box1{
+    width: 600px;
+    height: 400px;
+    position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.pl{
+    font-size: 100px;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+.check{
+    position: absolute;
+    left: 900px;
+    width: 150px;
+    height: 35px;
+    background-color: black;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 0 2px 5px black;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+}
+.a1{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+width: 100%;
+height: 100vh;
+display: none;
+}
+.txt{
+    font-size: 60px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+.ext{
+    font-size: 60px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    display: flex;
+}
+.back{
+   
+    width: 150px;
+    height: 35px;
+    background-color: white;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 0 2px 5px white;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+margin-top: 50px;
+}
+.img{
+    width: 175px;
+    height: 175px;
+    background-image: url();
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+<div class="a" id="a">
+<div class="header">What kind of <br> file is this</div>
+
+<div class="box1">
+    
+       <div class="box">
+
+    <div id="txt1">Drag & drop or </div><div class="pl" id="pl">+</div>
+
+   </div>
+   <button class="check" id="check">Check It!</button>
+   <input type="file" class="inp" id="inp" value="">
+</div>
+
+</div>
+<div class="a1" id="a1">
+    <div class="img" id="img"></div>
+    <div class="txt">Your file is: <br> <div id="typ"></div> </div>
+    <div class="ext">File extension:<div class="exte" id="exte"></div></div>
+    <div><button class="back" id="back">BACK</button></div>
+</div>
+    <script>
+let inp = document.getElementById('inp')
+inp.onchange =()=>{
+txt1.innerHTML = "Get it, Let's check"
+pl.innerHTML = "✓"
+let diff = inp.value.lastIndexOf('.');
+let ress = inp.value.slice(`${diff}`)
+console.log(ress);
+
+
+if(ress==='.png'){
+        console.log('photo')
+        check.onclick = ()=>{
+        a.style.display = 'none'
+        a1.style.display = 'flex'
+typ.innerHTML = 'Image'
+    exte.innerHTML = '.png'
+    a1.style.backgroundColor = 'greenyellow'
+img.style.backgroundImage = 'url(picture.png)'
+}
+}
+else if(ress==='.html'){
+check.onclick  = ()=>{
+    a.style.display = 'none'
+        a1.style.display = 'flex'
+        typ.innerHTML = 'Web-Page'
+    exte.innerHTML = '.html'
+    a1.style.backgroundColor = 'red'
+    img.style.backgroundImage = 'url(www.png)'
+}
+}else if(ress==='.jpg'){
+    console.log('photo')
+        check.onclick = ()=>{
+        a.style.display = 'none'
+        a1.style.display = 'flex'
+typ.innerHTML = 'Image'
+    exte.innerHTML = '.jpg'
+    a1.style.backgroundColor = 'greenyellow'
+    img.style.backgroundImage = 'url(picture.png)'
+}
+}
+
+
+
+}
+back.onclick = ()=>{
+        a1.style.display = 'none'
+        a.style.display = 'block'
+        txt1.innerHTML = "Drag & drop or"
+        pl.innerHTML = '+'
+    }
+
+
+
+    </script>
+</body>
+</html>
